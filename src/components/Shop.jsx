@@ -1,5 +1,5 @@
-import { func } from 'prop-types';
 import { useEffect, useState } from 'react';
+import ShopItems from './ShopItems';
 
 function Shop() {
   const [loader, setLoader] = useState(true);
@@ -23,9 +23,8 @@ function Shop() {
       {loader ? (
         <LoaderSvg />
       ) : (
-        <div>
-          <p>Shop</p>
-          {console.log(data)}
+        <div className="grid max-[850px]:grid-cols-2 grid-cols-3 gap-6 p-6">
+          <ShopItems data={data} />
         </div>
       )}
     </>
