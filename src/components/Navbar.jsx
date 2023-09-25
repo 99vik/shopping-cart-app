@@ -1,13 +1,17 @@
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import MenuIcon from '../assets/icons/menu.svg';
 
 function Navbar({ toggleShowCart }) {
   return (
     <>
       <nav>
-        <div className="flex justify-between px-2 md:px-10 py-4">
-          <div>
-            <p className="text-2xl font-bold">AllAround Shop</p>
+        <div className="flex justify-between items-center px-2 md:px-10 py-4">
+          <div className="">
+            <p className="text-2xl font-bold align-middle">AllAround Shop</p>
+          </div>
+          <div className="sm:hidden">
+            <img src={MenuIcon} alt="menu" className="h-12" />
           </div>
           <div className="flex gap-12 max-sm:hidden">
             <NavLink to="/">
