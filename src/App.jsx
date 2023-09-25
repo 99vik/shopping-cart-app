@@ -9,10 +9,10 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col max-w-screen">
       {showCart && <Cart />}
       <Navbar toggleShowCart={toggleShowCart} />
-      <div className="grow bg-gray-300">
+      <div className="grow">
         <Outlet />
       </div>
       <Footer />
