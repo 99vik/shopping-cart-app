@@ -9,12 +9,14 @@ function App() {
   }
 
   return (
-    <>
+    <div className="min-h-screen flex flex-col">
       {showCart && <Cart />}
       <Navbar toggleShowCart={toggleShowCart} />
-      <Outlet />
+      <div className="grow bg-gray-300">
+        <Outlet />
+      </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

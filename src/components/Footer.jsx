@@ -1,9 +1,9 @@
 function Footer() {
   return (
     <>
-      <div>
+      <footer className=" flex w-full py-6 justify-center">
         <p>Footer</p>
-      </div>
+      </footer>
     </>
   );
 }
