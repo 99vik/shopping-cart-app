@@ -23,7 +23,7 @@ function Shop() {
       {loader ? (
         <LoaderSvg />
       ) : (
-        <div className="grid max-[850px]:grid-cols-2 grid-cols-3 gap-6 p-6">
+        <div className="grid max-[570px]:grid-cols-1 max-[850px]:grid-cols-2 grid-cols-3 gap-6 p-6">
           <ShopItems data={data} />
         </div>
       )}
