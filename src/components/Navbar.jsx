@@ -5,7 +5,7 @@ function Navbar({ toggleShowCart }) {
   return (
     <>
       <nav>
-        <div className="flex justify-between px-10 py-4">
+        <div className="flex justify-between px-2 md:px-10 py-4">
           <div>
             <p className="text-2xl font-bold">AllAround Shop</p>
           </div>

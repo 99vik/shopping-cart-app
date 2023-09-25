@@ -30,7 +30,7 @@ function Home() {
           </Link>
         </div>
       </div>
-      <div className="px-20 py-10">
+      <div className="md:px-20 md:py-10 px-6 py-4">
         <p className="text-gray-600 text-lg tracking-wide">
           Discover a world of endless possibilities in electronics, timeless
           elegance in jewelry, and the latest fashion trends for both men and
@@ -39,19 +39,19 @@ function Home() {
           At AllAround Shop, we bring you the best of all worlds.
         </p>
         <div className="flex flex-col">
-          <p className="text-gray-600 tracking-wide text-2xl text-center mt-8">
+          <p className="text-gray-600 tracking-wide text-2xl text-center mt-4 md:mt-8">
             Shop for:
           </p>
-          <div className="flex justify-center mt-8 gap-20">
-            <div className="bg-neutral-800 rounded-xl w-[180px] py-4 px-8 aspect-square flex flex-col hover:bg-neutral-500 cursor-pointer">
+          <div className="flex flex-col md:flex-row align-middle justify-center mt-8 gap-8 md:gap-20">
+            <div className="bg-neutral-800 rounded-xl self-center w-[180px] py-4 px-8 aspect-square flex flex-col hover:bg-neutral-500 cursor-pointer">
               <img src={ElectronicsIcon} alt="" className="h-[90px]" />
               <p className="text-white text-2xl self-center">Electronics</p>
             </div>
-            <div className="bg-neutral-800 rounded-xl py-4 w-[180px] px-8 aspect-square flex flex-col hover:bg-neutral-500 cursor-pointer">
+            <div className="bg-neutral-800 self-center rounded-xl py-4 min-w-[180px] px-8 aspect-square flex flex-col hover:bg-neutral-500 cursor-pointer">
               <img src={ClothesIcon} alt="" className="h-[90px]" />
               <p className="text-white text-2xl self-center">Clothes</p>
             </div>
-            <div className="bg-neutral-800 rounded-xl py-4 px-8 w-[180px] aspect-square flex flex-col hover:bg-neutral-500 cursor-pointer">
+            <div className="bg-neutral-800 self-center rounded-xl py-4 px-8 min-w-[180px] aspect-square flex flex-col hover:bg-neutral-500 cursor-pointer">
               <img src={JewelryIcon} alt="" className="h-[90px]" />
               <p className="text-white text-2xl self-center">Jewelry</p>
             </div>
