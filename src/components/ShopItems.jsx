@@ -3,12 +3,17 @@ import { useState } from 'react';
 import CloseIcon from '../assets/icons/close-box.svg';
 import StarIcon from '../assets/icons/star.svg';
 
-function ShopItems({ data }) {
+function ShopItems({ data, addToCart }) {
   const [productInfo, setProductInfo] = useState(null);
 
   const items = data.map((item) => {
     return (
-      <ShopItem key={item.id} item={item} setProductInfo={setProductInfo} />
+      <ShopItem
+        key={item.id}
+        item={item}
+        setProductInfo={setProductInfo}
+        addToCart={addToCart}
+      />
     );
   });
   return (
@@ -26,8 +31,9 @@ function ShopItems({ data }) {
   );
 }
 
-function ShopItem({ item, setProductInfo }) {
+function ShopItem({ item, setProductInfo, addToCart }) {
   const [counter, setCounter] = useState(1);
+
   function handleCounter(operator) {
     if (operator === '+') {
       const newCounter = counter + 1;
@@ -61,7 +67,7 @@ function ShopItem({ item, setProductInfo }) {
           $<span className="text-xl text-black">{item.price}</span>
         </p>
       </div>
-      <div className="flex gap-4">
+      <div className="flex justify-center gap-6 w-full border-t-neutral-200 border-t-2 pt-3">
         <div className="flex">
           <button
             className="border-2 border-neutral-500 px-2 pl-3 font-bold text-white bg-neutral-500 rounded-tl-2xl pb-1 rounded-bl-2xl hover:bg-neutral-400 hover:border-neutral-400"
@@ -83,7 +89,14 @@ function ShopItem({ item, setProductInfo }) {
             +
           </button>
         </div>
-        <button>Add to Cart</button>
+        <button
+          className="text-sm font-semibold bg-neutral-500 hover:bg-neutral-700 px-3 py-1 text-white rounded-lg"
+          onClick={() => {
+            addToCart(counter, item);
+          }}
+        >
+          Add to Cart
+        </button>
       </div>
     </div>
   );

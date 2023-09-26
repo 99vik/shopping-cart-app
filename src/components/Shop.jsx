@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import ShopItems from './ShopItems';
+import { useOutletContext } from 'react-router-dom';
 
 function Shop() {
   const [loader, setLoader] = useState(true);
   const [data, setData] = useState(null);
   const [category, setCategory] = useState('electronics');
+  const [addToCart] = useOutletContext();
 
   function handleCategory(_category) {
     if (_category === category) {
@@ -30,7 +32,7 @@ function Shop() {
   return (
     <>
       <CategoriesButtons handleCategory={handleCategory} category={category} />
-      {loader ? <LoaderSvg /> : <ShopItems data={data} />}
+      {loader ? <LoaderSvg /> : <ShopItems data={data} addToCart={addToCart} />}
     </>
   );
 }
