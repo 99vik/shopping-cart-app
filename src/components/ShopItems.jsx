@@ -27,6 +27,19 @@ function ShopItems({ data }) {
 }
 
 function ShopItem({ item, setProductInfo }) {
+  const [counter, setCounter] = useState(1);
+  function handleCounter(operator) {
+    if (operator === '+') {
+      const newCounter = counter + 1;
+      setCounter(newCounter);
+    } else if (counter === 1) {
+      return;
+    } else {
+      const newCounter = counter - 1;
+      setCounter(newCounter);
+    }
+  }
+
   return (
     <div className="border border-neutral-400 rounded-xl p-3 max-[570px]:w-[300px] w-[250px] justify-self-center flex flex-col items-center justify-between gap-3">
       <img
@@ -48,7 +61,30 @@ function ShopItem({ item, setProductInfo }) {
           $<span className="text-xl text-black">{item.price}</span>
         </p>
       </div>
-      <div>Add to cart</div>
+      <div className="flex gap-4">
+        <div className="flex">
+          <button
+            className="border-2 border-neutral-500 px-2 pl-3 font-bold text-white bg-neutral-500 rounded-tl-2xl pb-1 rounded-bl-2xl hover:bg-neutral-400 hover:border-neutral-400"
+            onClick={() => {
+              handleCounter('-');
+            }}
+          >
+            -
+          </button>
+          <div className="border font-semibold border-neutral-500 w-[34px] flex justify-center items-center">
+            <p>{counter}</p>
+          </div>
+          <button
+            className="border-2 border-neutral-500 px-2 font-bold text-white bg-neutral-500 rounded-tr-2xl pb-1 rounded-br-2xl hover:bg-neutral-400 hover:border-neutral-400 pr-3"
+            onClick={() => {
+              handleCounter('+');
+            }}
+          >
+            +
+          </button>
+        </div>
+        <button>Add to Cart</button>
+      </div>
     </div>
   );
 }
