@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider, NavLink } from 'react-router-dom';
-import { Checkout, Shop, Home } from './exports';
+import { Shop, Home } from './exports';
 import App from '../App';
 
 const Router = () => {

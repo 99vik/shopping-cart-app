@@ -33,6 +33,14 @@ function ShopItems({ data, addToCart }) {
 
 function ShopItem({ item, setProductInfo, addToCart }) {
   const [counter, setCounter] = useState(1);
+  const [addAnimation, setAddAnimation] = useState(false);
+
+  function addToCardAnimation() {
+    setAddAnimation(true);
+    setTimeout(() => {
+      setAddAnimation(false);
+    }, 2000);
+  }
 
   function handleCounter(operator) {
     if (operator === '+') {
@@ -68,35 +76,45 @@ function ShopItem({ item, setProductInfo, addToCart }) {
         </p>
       </div>
       <div className="flex justify-center gap-6 w-full border-t-neutral-200 border-t-2 pt-3">
-        <div className="flex">
-          <button
-            className="border-2 border-neutral-500 px-2 pl-3 font-bold text-white bg-neutral-500 rounded-tl-2xl pb-1 rounded-bl-2xl hover:bg-neutral-400 hover:border-neutral-400"
-            onClick={() => {
-              handleCounter('-');
-            }}
-          >
-            -
-          </button>
-          <div className="border font-semibold border-neutral-500 w-[34px] flex justify-center items-center">
-            <p>{counter}</p>
-          </div>
-          <button
-            className="border-2 border-neutral-500 px-2 font-bold text-white bg-neutral-500 rounded-tr-2xl pb-1 rounded-br-2xl hover:bg-neutral-400 hover:border-neutral-400 pr-3"
-            onClick={() => {
-              handleCounter('+');
-            }}
-          >
-            +
-          </button>
-        </div>
-        <button
-          className="text-sm font-semibold bg-neutral-500 hover:bg-neutral-700 px-3 py-1 text-white rounded-lg"
-          onClick={() => {
-            addToCart(counter, item);
-          }}
-        >
-          Add to Cart
-        </button>
+        {addAnimation ? (
+          <p className="text-md mt-[7px] font-semibold text-neutral-600 flex justify-center items-center">
+            Added to cart
+          </p>
+        ) : (
+          <>
+            <div className="flex">
+              <button
+                className="border-2 border-neutral-500 px-2 pl-3 font-bold text-white bg-neutral-500 rounded-tl-2xl pb-1 rounded-bl-2xl hover:bg-neutral-400 hover:border-neutral-400"
+                onClick={() => {
+                  handleCounter('-');
+                }}
+              >
+                -
+              </button>
+              <div className="border font-semibold border-neutral-500 w-[34px] flex justify-center items-center">
+                <p>{counter}</p>
+              </div>
+              <button
+                className="border-2 border-neutral-500 px-2 font-bold text-white bg-neutral-500 rounded-tr-2xl pb-1 rounded-br-2xl hover:bg-neutral-400 hover:border-neutral-400 pr-3"
+                onClick={() => {
+                  handleCounter('+');
+                }}
+              >
+                +
+              </button>
+            </div>
+            <button
+              className="text-sm font-semibold bg-neutral-500 hover:bg-neutral-700 px-3 py-1 text-white rounded-lg"
+              onClick={() => {
+                addToCardAnimation();
+                setCounter(1);
+                addToCart(counter, item);
+              }}
+            >
+              Add to Cart
+            </button>
+          </>
+        )}
       </div>
     </div>
   );
