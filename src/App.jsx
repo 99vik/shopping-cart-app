@@ -1,11 +1,12 @@
 import { Outlet } from 'react-router-dom';
 import { Footer, Navbar, Cart } from './components/exports';
 import { useState } from 'react';
-import { func } from 'prop-types';
 
 function App() {
   const [showCart, setShowCart] = useState(false);
   const [cart, setCart] = useState([]);
+  const [numberOfItems, setNumberOfItems] = useState(0);
+
   function toggleShowCart() {
     showCart ? setShowCart(false) : setShowCart(true);
   }
@@ -15,11 +16,12 @@ function App() {
     const array = [counter, item];
     newCart.push(array);
     setCart(newCart);
+    setNumberOfItems(countItems(newCart));
     console.log(newCart);
   }
 
-  function countItems() {
-    return cart.reduce(
+  function countItems(newCart) {
+    return newCart.reduce(
       (accumulator, currentValue) => accumulator + currentValue[0],
       0
     );
@@ -28,7 +30,7 @@ function App() {
   return (
     <div className="min-h-screen flex flex-col max-w-screen">
       {showCart && <Cart />}
-      <Navbar toggleShowCart={toggleShowCart} numberOfItems={countItems()} />
+      <Navbar toggleShowCart={toggleShowCart} numberOfItems={numberOfItems} />
       <div className="grow">
         <Outlet context={[addToCart, cart]} />
       </div>

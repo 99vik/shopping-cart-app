@@ -150,11 +150,13 @@ function ViewInfoModule({ productInfo, setProductInfo }) {
 
 ShopItems.propTypes = {
   data: PropTypes.array,
+  addToCart: PropTypes.func,
 };
 
 ShopItem.propTypes = {
   item: PropTypes.object,
   setProductInfo: PropTypes.func,
+  addToCart: PropTypes.func,
 };
 
 ViewInfoModule.propTypes = {
