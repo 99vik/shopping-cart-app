@@ -17,7 +17,6 @@ function App() {
     newCart.push(array);
     setCart(newCart);
     setNumberOfItems(countItems(newCart));
-    console.log(newCart);
   }
 
   function countItems(newCart) {
@@ -29,7 +28,7 @@ function App() {
 
   return (
     <div className="min-h-screen flex flex-col max-w-screen">
-      {showCart && <Cart />}
+      {showCart && <Cart toggleShowCart={toggleShowCart} cartItems={cart} />}
       <Navbar toggleShowCart={toggleShowCart} numberOfItems={numberOfItems} />
       <div className="grow">
         <Outlet context={[addToCart, cart]} />
