@@ -13,8 +13,15 @@ function App() {
 
   function addToCart(counter, item) {
     let newCart = cart;
-    const array = [counter, item];
-    newCart.push(array);
+    if (newCart.some((cartItem) => cartItem[1].id === item.id)) {
+      const existingItem = newCart.find(
+        (cartItem) => cartItem[1].id === item.id
+      );
+      existingItem[0] += counter;
+    } else {
+      const array = [counter, item];
+      newCart.push(array);
+    }
     setCart(newCart);
     setNumberOfItems(countItems(newCart));
   }

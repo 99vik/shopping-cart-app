@@ -9,6 +9,7 @@ function Cart({ toggleShowCart, cartItems }) {
 
   return (
     <>
+      <div className="fixed w-full h-full bg-black opacity-20 top-0 flex justify-center items-center"></div>
       <div className="cart pt-3 pb-10 px-4 bg-white z-10 border-l border-neutral-500 fixed right-0 h-full w-[400px] z-5">
         <button
           onClick={() => {
@@ -31,11 +32,14 @@ function Cart({ toggleShowCart, cartItems }) {
             <div className="overflow-auto flex flex-col gap-3">
               {cartItemCards}
             </div>
-            <NavLink to="checkout">
-              <button className="text-md font-semibold bg-neutral-500 w-full hover:bg-neutral-700 py-1 text-white rounded-lg mt-1">
-                Checkout
-              </button>
-            </NavLink>
+            <button
+              className="text-md font-semibold bg-neutral-500 w-full hover:bg-neutral-700 py-1 text-white rounded-lg mt-1"
+              onClick={() => {
+                alert('Not working');
+              }}
+            >
+              Checkout
+            </button>
           </div>
         )}
       </div>
