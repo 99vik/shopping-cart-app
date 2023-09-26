@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import ShopItems from './ShopItems';
 
@@ -28,14 +29,8 @@ function Shop() {
 
   return (
     <>
-      <CategoriesButtons handleCategory={handleCategory} />
-      {loader ? (
-        <LoaderSvg />
-      ) : (
-        <div className="grid max-[570px]:grid-cols-1 max-[850px]:grid-cols-2 min-[1200px]:grid-cols-4 grid-cols-3 gap-6 p-6">
-          <ShopItems data={data} />
-        </div>
-      )}
+      <CategoriesButtons handleCategory={handleCategory} category={category} />
+      {loader ? <LoaderSvg /> : <ShopItems data={data} />}
     </>
   );
 }
@@ -62,11 +57,13 @@ function LoaderSvg() {
   );
 }
 
-function CategoriesButtons({ handleCategory }) {
+function CategoriesButtons({ handleCategory, category }) {
   return (
-    <div className="flex justify-center gap-12 mt-4">
+    <div className="flex justify-center max-[680px]:gap-2 max-[530px]:text-sm gap-12 px-2 mt-4">
       <button
-        className="text-md font-semibold bg-neutral-500 hover:bg-neutral-700 px-3 py-1 text-white rounded-lg"
+        className={`text-md font-semibold bg-neutral-500 hover:bg-neutral-700 max-[530px]:px-2 px-3 py-1 text-white rounded-lg ${
+          category === 'electronics' ? 'bg-neutral-700' : null
+        }`}
         onClick={() => {
           handleCategory('electronics');
         }}
@@ -74,23 +71,29 @@ function CategoriesButtons({ handleCategory }) {
         Electronics
       </button>
       <button
-        className="text-md font-semibold bg-neutral-500 hover:bg-neutral-700 px-3 py-1 text-white rounded-lg"
+        className={`text-md font-semibold bg-neutral-500 hover:bg-neutral-700 px-3 py-1 text-white rounded-lg ${
+          category === "men's clothing" ? 'bg-neutral-700' : null
+        }`}
         onClick={() => {
           handleCategory("men's clothing");
         }}
       >
-        Men's Clothes
+        Men&apos;s Clothes
       </button>
       <button
-        className="text-md font-semibold bg-neutral-500 hover:bg-neutral-700 px-3 py-1 text-white rounded-lg"
+        className={`text-md font-semibold bg-neutral-500 hover:bg-neutral-700 px-3 py-1 text-white rounded-lg ${
+          category === "women's clothing" ? 'bg-neutral-700' : null
+        }`}
         onClick={() => {
           handleCategory("women's clothing");
         }}
       >
-        Women's clothes
+        Women&apos;s clothes
       </button>
       <button
-        className="text-md font-semibold bg-neutral-500 hover:bg-neutral-700 px-3 py-1 text-white rounded-lg"
+        className={`text-md font-semibold bg-neutral-500 hover:bg-neutral-700 px-3 py-1 text-white rounded-lg ${
+          category === 'jewelery' ? 'bg-neutral-700' : null
+        }`}
         onClick={() => {
           handleCategory('jewelery');
         }}
@@ -100,5 +103,10 @@ function CategoriesButtons({ handleCategory }) {
     </div>
   );
 }
+
+CategoriesButtons.propTypes = {
+  handleCategory: PropTypes.func,
+  category: PropTypes.string,
+};
 
 export default Shop;
