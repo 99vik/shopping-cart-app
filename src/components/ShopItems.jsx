@@ -25,6 +25,7 @@ function ShopItem({ item }) {
           $<span className="text-xl text-black">{item.price}</span>
         </p>
       </div>
+      <div>Add to cart</div>
     </div>
   );
 }

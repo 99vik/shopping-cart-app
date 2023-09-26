@@ -6,10 +6,18 @@ function Shop() {
   const [data, setData] = useState(null);
   const [category, setCategory] = useState('electronics');
 
+  function handleCategory(_category) {
+    if (_category === category) {
+      return;
+    }
+    setLoader(true);
+    setCategory(_category);
+  }
+
   useEffect(() => {
     async function fetchData() {
       const fetchedData = await fetch(
-        'https://fakestoreapi.com/products/category/electronics'
+        `https://fakestoreapi.com/products/category/${category}`
       );
       const data = await fetchedData.json();
       setData(data);
@@ -20,10 +28,11 @@ function Shop() {
 
   return (
     <>
+      <CategoriesButtons handleCategory={handleCategory} />
       {loader ? (
         <LoaderSvg />
       ) : (
-        <div className="grid max-[570px]:grid-cols-1 max-[850px]:grid-cols-2 grid-cols-3 gap-6 p-6">
+        <div className="grid max-[570px]:grid-cols-1 max-[850px]:grid-cols-2 min-[1200px]:grid-cols-4 grid-cols-3 gap-6 p-6">
           <ShopItems data={data} />
         </div>
       )}
@@ -49,6 +58,45 @@ function LoaderSvg() {
           fill="#000000"
         />
       </svg>
+    </div>
+  );
+}
+
+function CategoriesButtons({ handleCategory }) {
+  return (
+    <div className="flex justify-center gap-12 mt-4">
+      <button
+        className="text-md font-semibold bg-neutral-500 hover:bg-neutral-700 px-3 py-1 text-white rounded-lg"
+        onClick={() => {
+          handleCategory('electronics');
+        }}
+      >
+        Electronics
+      </button>
+      <button
+        className="text-md font-semibold bg-neutral-500 hover:bg-neutral-700 px-3 py-1 text-white rounded-lg"
+        onClick={() => {
+          handleCategory("men's clothing");
+        }}
+      >
+        Men's Clothes
+      </button>
+      <button
+        className="text-md font-semibold bg-neutral-500 hover:bg-neutral-700 px-3 py-1 text-white rounded-lg"
+        onClick={() => {
+          handleCategory("women's clothing");
+        }}
+      >
+        Women's clothes
+      </button>
+      <button
+        className="text-md font-semibold bg-neutral-500 hover:bg-neutral-700 px-3 py-1 text-white rounded-lg"
+        onClick={() => {
+          handleCategory('jewelery');
+        }}
+      >
+        Jewelery
+      </button>
     </div>
   );
 }
