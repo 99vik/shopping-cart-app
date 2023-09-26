@@ -9,7 +9,7 @@ function Cart({ toggleShowCart, cartItems }) {
 
   return (
     <>
-      <div className="cart py-10 px-4 bg-white z-10 border-l border-neutral-500 fixed right-0 h-full w-[400px] z-5">
+      <div className="cart pt-3 pb-10 px-4 bg-white z-10 border-l border-neutral-500 fixed right-0 h-full w-[400px] z-5">
         <button
           onClick={() => {
             toggleShowCart();
@@ -27,12 +27,14 @@ function Cart({ toggleShowCart, cartItems }) {
           </div>
         ) : (
           <div className="h-full w-full flex flex-col gap-3">
-            <p className="">Cart</p>
+            <p className="text-2xl font-bold">Cart</p>
             <div className="overflow-auto flex flex-col gap-3">
               {cartItemCards}
             </div>
             <NavLink to="checkout">
-              <button>Checkout</button>
+              <button className="text-md font-semibold bg-neutral-500 w-full hover:bg-neutral-700 py-1 text-white rounded-lg mt-1">
+                Checkout
+              </button>
             </NavLink>
           </div>
         )}
@@ -46,10 +48,13 @@ function CartItem({ item }) {
   const itemInfo = item[1];
   return (
     <div className="flex border-neutral-300 border px-4 py-2 gap-6 items-center rounded-lg">
-      <img src={itemInfo.image} alt="item picture" className="h-[80px]" />
+      <img src={itemInfo.image} alt="item picture" className="w-[100px]" />
       <div>
-        <p>{itemInfo.title}</p>
-        <p>{quantity}</p>
+        <p className="text-sm mb-1">{itemInfo.title}</p>
+        <p className="text-sm text-neutral-600">Quantity: {quantity}</p>
+        <p className="text-sm text-neutral-600">
+          Price: ${quantity * itemInfo.price}
+        </p>
       </div>
     </div>
   );
