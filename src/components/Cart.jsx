@@ -12,7 +12,7 @@ function Cart({ toggleShowCart, cartItems, deleteCartItem }) {
   return (
     <>
       <div className="fixed w-full h-full max-sm:hidden bg-black opacity-20 top-0 flex justify-center items-center"></div>
-      <div className="cart pt-3 pb-10 px-4 bg-white border-l border-neutral-500 md:fixed right-0 grow h-full max-sm:h-1/2 max-sm:w-full w-[400px]">
+      <div className="sm:cart pt-3 pb-10 px-4 bg-white border-l border-neutral-500 md:fixed right-0 grow h-full max-sm:h-1/2 max-sm:w-full w-[400px]">
         <button
           onClick={() => {
             toggleShowCart();
