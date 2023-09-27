@@ -1,8 +1,7 @@
-# React + Vite
+# Shopping cart app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Odin project React exercise. Link: https://www.theodinproject.com/lessons/react-new-shopping-cart
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Made a simple e-commerce store with home and shop pages made with React Router 6. Shop fetches items from https://fakestoreapi.com/, you can choose quantity of the selected item and store in in your cart.
+- App was styled with Tailwind (this was my first time using tailwind)
+- Site is fully responsive
