@@ -10,7 +10,7 @@ function Navbar({ toggleShowCart, numberOfItems, cartItems, deleteCartItem }) {
   return (
     <>
       {smallScreenMenu && (
-        <div className="small-menu w-full h-full z-10 fixed bg-white flex flex-col gap-10 justify-start items-center pt-24">
+        <div className="small-menu w-full h-full z-10 fixed bg-white flex flex-col justify-start items-center pt-20">
           <button
             className="absolute top-2 right-2"
             onClick={() => {
@@ -41,13 +41,11 @@ function Navbar({ toggleShowCart, numberOfItems, cartItems, deleteCartItem }) {
               </button>
             </NavLink>
           </div>
-          {/* <div>
-            <Cart
-              toggleShowCart={toggleShowCart}
-              cartItems={cartItems}
-              deleteCartItem={deleteCartItem}
-            />
-          </div> */}
+          <Cart
+            toggleShowCart={toggleShowCart}
+            cartItems={cartItems}
+            deleteCartItem={deleteCartItem}
+          />
         </div>
       )}
       <nav className="z-1">
