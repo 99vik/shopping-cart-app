@@ -9,12 +9,22 @@
 
 .cart {
   animation-name: cart-animation-in;
-  animation-direction: alternate;
   animation-timing-function: ease-out;
   animation-duration: 0.4s;
 }
 
 @keyframes cart-animation-in {
-  0%   {transform: translateX(400px);}
+  0%   {transform: translateX(100%);}
+  100% {transform: translateX(0);}
+}
+
+.small-menu {
+  animation-name: small-menu-in;
+  animation-timing-function: ease-out;
+  animation-duration: 0.4s;
+}
+
+@keyframes small-menu-in {
+  0%   {transform: translateX(100%);}
   100% {transform: translateX(0);}
 }

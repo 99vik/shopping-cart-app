@@ -50,7 +50,12 @@ function App() {
           deleteCartItem={deleteCartItem}
         />
       )}
-      <Navbar toggleShowCart={toggleShowCart} numberOfItems={numberOfItems} />
+      <Navbar
+        toggleShowCart={toggleShowCart}
+        numberOfItems={numberOfItems}
+        cartItems={cart}
+        deleteCartItem={deleteCartItem}
+      />
       <div className="grow">
         <Outlet context={[addToCart, cart]} />
       </div>
