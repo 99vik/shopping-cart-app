@@ -59,7 +59,7 @@ function ShopItem({ item, setProductInfo, addToCart }) {
       <img
         src={item.image}
         alt="product picture"
-        className="h-[100px] max-[570px]:h-[150px] w-fit "
+        className="h-[100px] max-[570px]:h-[150px] w-auto "
       />
       <p className="text-sm font-semibold text-neutral-600">{item.title}</p>
       <div className="flex justify-between w-full items-center">
