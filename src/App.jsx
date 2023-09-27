@@ -26,6 +26,14 @@ function App() {
     setNumberOfItems(countItems(newCart));
   }
 
+  function deleteCartItem(item) {
+    let newCart = cart;
+    const index = newCart.findIndex((cartItem) => cartItem === item);
+    newCart.splice(index, 1);
+    setCart(newCart);
+    setNumberOfItems(countItems(newCart));
+  }
+
   function countItems(newCart) {
     return newCart.reduce(
       (accumulator, currentValue) => accumulator + currentValue[0],
@@ -35,7 +43,13 @@ function App() {
 
   return (
     <div className="min-h-screen flex flex-col max-w-screen">
-      {showCart && <Cart toggleShowCart={toggleShowCart} cartItems={cart} />}
+      {showCart && (
+        <Cart
+          toggleShowCart={toggleShowCart}
+          cartItems={cart}
+          deleteCartItem={deleteCartItem}
+        />
+      )}
       <Navbar toggleShowCart={toggleShowCart} numberOfItems={numberOfItems} />
       <div className="grow">
         <Outlet context={[addToCart, cart]} />
