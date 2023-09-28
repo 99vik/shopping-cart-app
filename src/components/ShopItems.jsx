@@ -55,7 +55,10 @@ function ShopItem({ item, setProductInfo, addToCart }) {
   }
 
   return (
-    <div className="border border-neutral-400 rounded-xl p-3 max-[570px]:w-[300px] w-[250px] justify-self-center flex flex-col items-center justify-between gap-3">
+    <div
+      className="border border-neutral-400 rounded-xl p-3 max-[570px]:w-[300px] w-[250px] justify-self-center flex flex-col items-center justify-between gap-3"
+      aria-label="shop item"
+    >
       <img
         src={item.image}
         alt="product picture"

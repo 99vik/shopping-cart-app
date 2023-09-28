@@ -39,7 +39,10 @@ function Shop() {
 
 function LoaderSvg() {
   return (
-    <div className="flex h-[400px] justify-center items-center">
+    <div
+      className="flex h-[400px] justify-center items-center"
+      aria-label="loader animation"
+    >
       <svg
         className="h-[100px] animate-spin"
         aria-hidden="true"
