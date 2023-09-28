@@ -92,6 +92,7 @@ function Navbar({ toggleShowCart, numberOfItems, cartItems, deleteCartItem }) {
             </NavLink>
             <button
               onClick={() => toggleShowCart()}
+              aria-label="cart button"
               className="flex justify-center items-center"
             >
               <svg
