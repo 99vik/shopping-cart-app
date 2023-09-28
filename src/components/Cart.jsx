@@ -17,6 +17,7 @@ function Cart({ toggleShowCart, cartItems, deleteCartItem }) {
         aria-label="cart"
       >
         <button
+          aria-label="close cart"
           onClick={() => {
             toggleShowCart();
           }}
@@ -56,7 +57,10 @@ function CartItem({ item, deleteCartItem }) {
   const quantity = item[0];
   const itemInfo = item[1];
   return (
-    <div className="flex border-neutral-300 border px-4 py-2 gap-6 items-center rounded-lg">
+    <div
+      className="flex border-neutral-300 border px-4 py-2 gap-6 items-center rounded-lg"
+      aria-label="cart item"
+    >
       <img src={itemInfo.image} alt="item picture" className="w-[100px]" />
       <div>
         <p className="text-sm mb-1">{itemInfo.title}</p>

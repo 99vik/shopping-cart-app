@@ -59,7 +59,7 @@ describe('App component', () => {
       );
       const cartButton = screen.getByRole('button', { name: /cart button/i });
       await user.click(cartButton);
-      const cart = screen.getByText(/cart/);
+      const cart = screen.getByLabelText(/^cart$/);
 
       expect(cart).toBeInTheDocument();
     });
